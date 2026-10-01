@@ -10,7 +10,7 @@ export default function App() {
   const [enlargedShoe, setEnlargedShoe] = useState(null);
   const [copiedId, setCopiedId] = useState(null);
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+  const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
 
   // Caricamento scarpe dall'API FastAPI
   useEffect(() => {
