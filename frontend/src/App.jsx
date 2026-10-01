@@ -10,6 +10,8 @@ export default function App() {
   const [enlargedShoe, setEnlargedShoe] = useState(null);
   const [copiedId, setCopiedId] = useState(null);
 
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+
   // Caricamento scarpe dall'API FastAPI
   useEffect(() => {
     fetchShoes();
@@ -18,7 +20,7 @@ export default function App() {
   const fetchShoes = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/shoes');
+      const res = await fetch(`${API_BASE_URL}/api/shoes`);
       const data = await res.json();
       setShoes(data);
 
